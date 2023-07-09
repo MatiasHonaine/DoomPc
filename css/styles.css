@@ -58,7 +58,7 @@ ol {
 
 .conteiner-item {
   display: grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(auto-fill, 500px);
   gap: 20px;
 
 }
