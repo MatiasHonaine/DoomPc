@@ -1,16 +1,16 @@
-import { inicializarProductos, agregarAlCarrito } from './clases/index.js';
+import { inicializarProductos, agregarAlCarrito } from './clases/clases.js';
 
 
 const ArrayProductos = [];
 const ArrayCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
 let idUniversal = 1;
 
-inicializarProductos(ArrayDeProductos, idUniversal);
+inicializarProductos(ArrayProductos, idUniversal);
 let productoEncontrado = {};
 
 
 input.addEventListener("input", (event) => {
-    productoEncontrado = ArrayDeProductos.find(el => el.nombre === event.target.value)
+    productoEncontrado = ArrayProductos.find(el => el.nombre === event.target.value)
 })
 
 input.addEventListener("keypress", (event) => {
@@ -33,26 +33,38 @@ ArrayProductos.forEach((el, index) => {
                     </h2>
                     <p class="precio"><strong>$${el.precio}<strong></p>
                     `
-    const div= document.createElement("div")
-    const button=document.createElement("button")
-    button.innerHTML=`
-                    <button class="button">Añadir al carrito</button>
+    const div = document.createElement("div")
+    const button = document.createElement("button")
+    button.innerHTML = `
+                    <button class="button" id="button">Añadir al carrito</button>
                     `
     buttonAgregar.innerText = "Añadir al carrito";
     buttonAgregar.addEventListener("click", () => {
         agregarAlCarrito(ArrayCarrito, el);
         localStorage.setItem("carrito", JSON.stringify(ArrayCarrito))
+
+        const botonPrueba = document.querySelector("#button")
+
+        botonPrueba.addEventListener("click", () => {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Agregado correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        })
     })
 
     tarjeta.appendChild(buttonAgregar);
     app.appendChild(tarjeta);
 })
 
-let userInputNumber=0;
+let userInputNumber = 0;
 
-input.addEventListener("click",()=>{
+input.addEventListener("click", () => {
     userInputNumber++
-    userInput.value=userInputNumber
+    userInput.value = userInputNumber
     console.log(userInputNumber)
 })
 
