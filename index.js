@@ -9,13 +9,13 @@ inicializarProductos(ArrayProductos, idUniversal);
 let productoEncontrado = {};
 
 
-input.addEventListener("input", (event) => {
+/*input.addEventListener("input", (event) => {
     productoEncontrado = ArrayProductos.find(el => el.nombre === event.target.value)
 })
 
 input.addEventListener("keypress", (event) => {
     (event.key === "Enter" && productoEncontrado) && console.log("el producto es:", productoEncontrado)
-})
+})*/
 
 ArrayProductos.forEach((el, index) => {
     const section = document.createElement("section")
@@ -38,8 +38,8 @@ ArrayProductos.forEach((el, index) => {
     button.innerHTML = `
                     <button class="button" id="button">Añadir al carrito</button>
                     `
-    buttonAgregar.innerText = "Añadir al carrito";
-    buttonAgregar.addEventListener("click", () => {
+    button.innerText = "Añadir al carrito";
+    button.addEventListener("click", () => {
         agregarAlCarrito(ArrayCarrito, el);
         localStorage.setItem("carrito", JSON.stringify(ArrayCarrito))
 
@@ -56,7 +56,7 @@ ArrayProductos.forEach((el, index) => {
         })
     })
 
-    tarjeta.appendChild(buttonAgregar);
+    tarjeta.appendChild(button);
     app.appendChild(tarjeta);
 })
 
