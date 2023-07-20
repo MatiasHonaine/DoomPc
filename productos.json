@@ -1,0 +1,23 @@
+{
+    "data": [
+        {
+            "nombre": "Monitor",
+            "precio": 150000,
+            "marca": "Lenovo",
+            "id": 1,
+            "url":"./img/Monitor-Samsung-22.jpg"
+        },
+        {
+            "nombre": "Gabinete",
+            "precio": 12500,
+            "marca": "Sentey",
+            "id": 2
+        },
+        {
+            "nombre": "Microprocesador",
+            "precio": 86000,
+            "marca": "Ryzen 7",
+            "id": 3
+        }
+    ]
+}

@@ -3,6 +3,8 @@ import { inicializarProductos, agregarAlCarrito } from './clases/clases.js';
 
 const ArrayProductos = [];
 const ArrayCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
+const container = document.querySelector("#container");
+console.log(container);
 let idUniversal = 1;
 
 inicializarProductos(ArrayProductos, idUniversal);
